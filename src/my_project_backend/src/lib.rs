@@ -7,14 +7,14 @@ mod blog;
 thread_local! {
     static BLOGS: RefCell<Vec<Blog>> = RefCell::new(Vec::new());
 }
-
+// komentarze ?
 
 #[ic_cdk::update]
 fn add_blog(title: String, content: String, tags: Vec<String>) -> Result<Blog, String>{
     if title.len() > 250 {
         return Err("Title is too long!".to_string())
     }
-    if content.len() > 500 {
+    if content.len() > 2000 {
         return Err("Content is too long!".to_string())
     }
     if tags.len() > 3 {
